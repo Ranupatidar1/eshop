@@ -27,7 +27,7 @@ color: white;
 .header-searchInput{
     height: 11px;
     padding: 10px;
-    width: 65vw;
+    width: 58vw;
     border: none;
 
 }
@@ -36,7 +36,9 @@ color: white;
     padding: 5px;
      background-color: orange;
 }
+
 .header-nav{
+    
     display: flex;
     justify-content: space-evenly;
 }
@@ -63,3 +65,18 @@ color: white;
 .nav-basketCount{
     margin-left: 10px;
 }
+@media (max-width:500px){
+    .header{
+      flex-direction: column;
+    }
+  }
+@media (max-width:500px){
+    .nav-itemLineone, .nav-itemLinetwo{
+      color: black;
+    }
+  }
+@media (max-width:500px){
+    .header-searchInput{
+      width: 50vw;
+    }
+  }

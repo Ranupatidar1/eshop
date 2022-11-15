@@ -1,24 +1,33 @@
 import React from "react";
 import "./CheckoutProduct.css";
- const CheckoutProduct =() =>{
+import { useStateValue } from "./StateProvider";
+
+ const CheckoutProduct =({ id, image, title, price, rating }) =>{
+    const[{basket},dispatch] = useStateValue();
+    const removeFromBasket=()=>{
+        dispatch({
+            type:"REMOVE_FROM_BASKET",
+            id:id,
+        })
+    }
     return(
         <div className="checkoutProduct">
 
-        <img src="https://tamil.samayam.com/photo/90005744.cms" alt="" className="checkoutProduct-image" />
+        <img src={image} alt="" className="checkoutProduct-image" />
         
         <div className="checkoutProduct-info">
         
         <p className="checkoutProduct-title">
-            Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)
+        {title}
         </p>
         <p className="checkoutProduct-price">
          <small>$</small>
-         <strong>20</strong>
+        <strong>{price}</strong>
         </p>
          <div className="checkoutProduct-rating">
-         ⭐
+         {rating}
          </div>
-        <button>Remove from Basket</button>
+        <button onClick={removeFromBasket}>Remove from Basket</button>
         
         
         </div>

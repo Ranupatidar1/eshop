@@ -3,20 +3,21 @@ import "./Header.css"
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { useStateValue } from "./StateProvider"
 
+
 const Header =()=>{
-  const [{basket}, dispatch]= useStateValue();
+  const [{basket},dispatch] = useStateValue();
     return(
        
             <div className="header">
-              <NavLink to = "/" style={{textDecoration: "none"}}>
+              <Link to = "/home" style={{textDecoration: "none"}}>
               <div className="header-logo">
                 <StorefrontIcon  className="header-logoImg" fontSize ="large"/>
                    <h3 className =" header-logoTitle">eShop</h3>
                 </div>
-              </NavLink>
+              </Link>
                 
                 
                 
@@ -29,24 +30,30 @@ const Header =()=>{
 
 
                      <div className="header-nav">
-                     <div className="nav-item">
+                      <Link to = "/" style={{textDecoration: "none" ,color:"white"}}><div className="nav-item">
                         <span className="nav-itemLineone">hello guest</span>
                        <span className="nav-itemLinetwo">Login</span>
 
-                     </div>
+                     </div></Link>
+                      <Link to = "/signup" style={{textDecoration: "none" ,color:"white"}}><div className="nav-item">
+                        <span className="nav-itemLineone">hello guest</span>
+                       <span className="nav-itemLinetwo">Signup</span>
+
+                     </div></Link>
+                     
 
                      <div className="nav-item">
                      <span className="nav-itemLineone">your</span>
                        <span className="nav-itemLinetwo">Shop</span>
 
                      </div>
-                     <NavLink to = "/Checkout" style={{textDecoration: "none"}}>
-                     <div  className="nav-itemBasket">
+                     <Link to = "/Checkout" style={{textDecoration: "none"}}>
+                     <div  className=" nav-itemLineone nav-itemBasket">
                     <ShoppingBasketIcon />
                        <span className="nav-itemLinetwo nav-basketCount">{basket.length}</span>
 
                    </div>
-                     </NavLink>
+                     </Link>
                     
                   
                     
